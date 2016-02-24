@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "nakilib"
-  s.version      = "1.0.1"
+  s.version      = "1.0.3"
   s.summary      = "my lib, with some usefull tools"
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/NagiYan/nakilib.git", :tag => "1.0.1" }
+  s.source       = { :git => "https://github.com/NagiYan/nakilib.git", :tag => "1.0.3" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
