@@ -7,8 +7,9 @@
 //
 
 #import "MJRefreshViewController.h"
-#import <MJRefresh.h>
-#import <MGSwipeTableCell.h>
+#import "MJRefresh.h"
+#import "MGSwipeTableCell.h"
+#import "Masonry.h"
 
 @interface MJRefreshViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -33,7 +34,7 @@ static NSString* identifier = @"mjrefresh_cell";
 }
 
 - (void)dealloc {
-    saveRelease(_netData);
+    [_netData release];
     [super dealloc];
 }
 

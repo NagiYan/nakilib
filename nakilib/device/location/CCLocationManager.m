@@ -88,25 +88,25 @@
 
 
     CLGeocoder *geocoder=[[CLGeocoder alloc]init];
-    @weakify(self)
+    __block typeof(self) weakSelf = self;
     [geocoder reverseGeocodeLocation:marsLoction completionHandler:^(NSArray *placemarks,NSError *error)
      {
-         @strongify(self)
+         //@strongify(self)
          if (placemarks.count > 0) {
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
-             self->_lastCity = placemark.locality;
-             [standard setObject:self->_lastCity forKey:CCLastCity];//省市地址
-             NSLog(@"______%@",self->_lastCity);
-             self->_lastAddress = placemark.name;
-             NSLog(@"______%@",self->_lastAddress);
+             weakSelf->_lastCity = placemark.locality;
+             [standard setObject:weakSelf->_lastCity forKey:CCLastCity];//省市地址
+             NSLog(@"______%@",weakSelf->_lastCity);
+             weakSelf->_lastAddress = placemark.name;
+             NSLog(@"______%@",weakSelf->_lastAddress);
          }
-         if (self->_cityBlock) {
-             self->_cityBlock(self->_lastCity);
-             self->_cityBlock = nil;
+         if (weakSelf->_cityBlock) {
+             weakSelf->_cityBlock(weakSelf->_lastCity);
+             weakSelf->_cityBlock = nil;
          }
-         if (self->_addressBlock) {
-             self->_addressBlock(self->_lastAddress);
-             self->_addressBlock = nil;
+         if (weakSelf->_addressBlock) {
+             weakSelf->_addressBlock(weakSelf->_lastAddress);
+             weakSelf->_addressBlock = nil;
          }
 
          

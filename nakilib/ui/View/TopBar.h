@@ -15,8 +15,8 @@
     UIButton*   _btnRight;
 }
 
-// 以默认尺寸和颜色创建
-- (id)initWithDefaultFrameAndColor;
+// 以默认尺寸创建
+- (id)initWithDefaultFrameAndColor:(UIColor*)color;
 // 指定尺寸和颜色
 - (id)initWithFrame:(CGRect)frame withColor:(UIColor*)color;
 

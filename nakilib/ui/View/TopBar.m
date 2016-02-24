@@ -7,6 +7,11 @@
 //
 
 #import "ColorUtil.h"
+#import "Topbar.h"
+#import "Masonry.h"
+#import "GScreen.h"
+#import "ColorDefine.h"
+#import "ShapeFactory.h"
 
 @implementation TopBar
 {
@@ -15,9 +20,9 @@
     UIView* background;
 }
 
-- (id)initWithDefaultFrameAndColor
+- (id)initWithDefaultFrameAndColor:(UIColor*)color
 {
-    return [self initWithFrame:CGRectMake(0, 0, [[GScreen sharedInstance] GetDeviceFrame].width, 64) withColor:FlatThemeColor];
+    return [self initWithFrame:CGRectMake(0, 0, [[GScreen sharedInstance] GetDeviceFrame].width, 64) withColor:color];
 }
 
 - (id)initWithFrame:(CGRect)frame withColor:(UIColor*)color

@@ -26,7 +26,7 @@
         // 设定位置和大小
         CGRect frameV = CGRectMake(0, 0, frame.size.width, frame.size.height);
         
-        NSString *gif;
+        NSString *gif = @"";
         if (LoadingViewStyleBall == style)
         {
             gif = @"ball.gif";

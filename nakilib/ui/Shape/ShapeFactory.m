@@ -7,6 +7,7 @@
 //
 
 #import "ShapeFactory.h"
+#import "Masonry.h"
 
 @implementation ShapeFactory
 

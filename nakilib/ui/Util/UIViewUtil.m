@@ -7,6 +7,7 @@
 //
 
 #import "UIViewUtil.h"
+#import "GScreen.h"
 
 @implementation UIViewUtil
 

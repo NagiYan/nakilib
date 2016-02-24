@@ -7,8 +7,9 @@
 //
 
 #import "MultipleMJRefreshViewController.h"
-#import <MJRefresh.h>
-#import <MGSwipeTableCell.h>
+#import "MJRefresh.h"
+#import "MGSwipeTableCell.h"
+#import "Masonry.h"
 
 static NSString* identifier = @"mmjrefresh_cell";
 
@@ -30,7 +31,7 @@ static NSString* identifier = @"mmjrefresh_cell";
 
 - (void)dealloc
 {
-    saveRelease(_tableViews);
+    [_tableViews release];
     [super dealloc];
 }
 /*

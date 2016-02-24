@@ -36,12 +36,6 @@
 //date按格式输入出
 +(NSString *)DateToStr:(NSDate *)date Format:(NSString *)format;
 
-//取得多行文字实际高度 
-+(CGSize)getTextSize:(NSString *)str Font:(UIFont *)font Width:(CGFloat)width;
-
-//取得单行文字的宽度
-+(CGFloat)getTextWidth:(NSString *)str Font:(UIFont *)font;
-
 //检测ic型号
 +(BOOL)checkICModel:(NSString *)icModel;
 //检测input是否整型

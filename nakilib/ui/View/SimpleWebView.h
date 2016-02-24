@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SAMWebView.h>
+#import "SAMWebView.h"
 
 @interface SimpleWebView : UIView<SAMWebViewDelegate>
 

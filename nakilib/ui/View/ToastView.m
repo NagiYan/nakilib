@@ -7,6 +7,9 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import "ToastView.h"
+#import "GSizeUtil.h"
+#import "ShapeFactory.h"
 
 static int delayQueue = 0;
 

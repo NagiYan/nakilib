@@ -159,19 +159,6 @@
     return [formatter stringFromDate:date];
 }
 
-+(CGSize)getTextSize:(NSString *)str Font:(UIFont *)font Width:(CGFloat)width;
-{
-    CGSize size = CGSizeMake(width, FLT_MAX);
-    CGSize labelSize = [str sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
-    return labelSize;
-}
-
-+(CGFloat)getTextWidth:(NSString *)str Font:(UIFont *)font
-{
-    CGSize size = CGSizeMake(FLT_MAX, FLT_MAX);
-    CGSize labelSize = [str sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
-    return labelSize.width;
-}
 
 +(BOOL)checkInteger:(NSString *)input
 {

@@ -8,6 +8,11 @@
 
 #import "SimpleWebView.h"
 #import "UIView+ADGifLoading.h"
+#import "Masonry.h"
+#import "pop.h"
+#import "GScreen.h"
+#import "ShapeFactory.h"
+#import "ReactiveCocoa.h"
 
 @interface SimpleWebView ()
 @property (retain, nonatomic)UIView* background;

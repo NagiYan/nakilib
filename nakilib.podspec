@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "nakilib"
-  s.version      = "1.0.4"
+  s.version      = "1.0.5"
   s.summary      = "my lib, with some usefull tools"
 
   # This description is used to generate tags and improve search results.
@@ -63,7 +63,7 @@ Pod::Spec.new do |s|
   #
 
   #s.platform     = :ios
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "7.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/NagiYan/nakilib.git", :tag => "1.0.4" }
+  s.source       = { :git => "https://github.com/NagiYan/nakilib.git", :tag => "1.0.5" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "nakilib/**/*", "nakilib/ui/**/*", "nakilib/communication/**/*", "nakilib/device/**/*"
-  #s.exclude_files = "Classes/Exclude"
+  s.exclude_files = "nakilib/LICENSE"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -116,7 +116,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "UIKit", "ImageIO"
+  s.frameworks = "UIKit", "ImageIO", "MapKit"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
@@ -132,6 +132,14 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   s.dependency 'AFNetworking'
-
-
+  s.dependency 'Masonry' 
+  s.dependency 'Reachability' 
+  s.dependency 'MJRefresh' 
+  s.dependency 'MGSwipeTableCell'
+  s.dependency 'ReactiveCocoa' 
+  s.dependency 'ChameleonFramework'
+  s.dependency 'SAMWebView' 
+  s.dependency 'ADGifLoading'
+  s.dependency 'pop'
+  s.dependency 'SDWebImage' 
 end

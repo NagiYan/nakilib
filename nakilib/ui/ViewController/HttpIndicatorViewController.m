@@ -7,6 +7,7 @@
 //
 
 #import "HttpIndicatorViewController.h"
+#import "GScreen.h"
 
 @interface HttpIndicatorViewController ()
 {

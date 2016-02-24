@@ -9,6 +9,12 @@
 #import "UIUploadPictureView.h"
 #import "ImageUtil.h"
 #import "UIImageView+WebCache.h"
+#import "UIViewUtil.h"
+#import "ReactiveCocoa.h"
+#import "UIActionSheet+Block.h"
+#import "Masonry.h"
+#import "ColorDefine.h"
+#import "Chameleon.h"
 
 @implementation UIUploadPictureView
 {
@@ -18,7 +24,7 @@
 
 - (void)dealloc
 {
-    saveRelease(_url);
+    [_url release];
     [_image release];
     [super dealloc];
 }

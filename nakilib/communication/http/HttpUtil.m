@@ -7,8 +7,8 @@
 //
 
 #import "HttpUtil.h"
-#import <AFNetworking.h>
-#import <UIProgressView+AFNetworking.h>
+#import "AFNetworking.h"
+#import "UIProgressView+AFNetworking.h"
 
 @implementation HttpUtil
 

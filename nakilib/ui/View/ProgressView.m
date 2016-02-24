@@ -7,6 +7,8 @@
 //
 
 #import "ProgressView.h"
+#import "GScreen.h"
+#import "FontUtil.h"
 
 @implementation ProgressView
 {

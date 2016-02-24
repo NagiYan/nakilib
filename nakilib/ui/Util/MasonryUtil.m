@@ -7,6 +7,7 @@
 //
 
 #import "MasonryUtil.h"
+#import "Masonry.h"
 
 @implementation MasonryUtil
 

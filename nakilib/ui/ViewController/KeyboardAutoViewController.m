@@ -7,6 +7,7 @@
 //
 
 #import "KeyboardAutoViewController.h"
+#import "GScreen.h"
 
 @interface KeyboardAutoViewController ()<UIGestureRecognizerDelegate>
 

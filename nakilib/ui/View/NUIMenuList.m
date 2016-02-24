@@ -7,6 +7,12 @@
 //
 
 #import "NUIMenuList.h"
+#import "ReactiveCocoa.h"
+#import "UIGestureRecognizer+ReactiveCocoa.h"
+#import "GScreen.h"
+#import "ShapeFactory.h"
+#import "ColorDefine.h"
+#import "Chameleon.h"
 
 @interface NUIMenuList ()<UIGestureRecognizerDelegate>
 
