@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "nakilib/**/*", "nakilib/ui/**/*", "nakilib/communication/**/*", "nakilib/communication/bluetooth/*", "nakilib/device/**/*"
+  s.source_files  = "nakilib/**/*", "nakilib/ui/**/*", "nakilib/communication/**/*", "nakilib/device/**/*"
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
