@@ -7,12 +7,10 @@
 //
 
 #import "SimpleWebView.h"
-#import "UIView+ADGifLoading.h"
 #import "Masonry.h"
 #import "pop.h"
-#import "GScreen.h"
-#import "ShapeFactory.h"
 #import "ReactiveCocoa.h"
+#import "SquareLoadingView.h"
 
 @interface SimpleWebView ()
 @property (retain, nonatomic)UIView* background;
@@ -20,13 +18,13 @@
 
 @implementation SimpleWebView
 {
-    UIImageView *activityIndicatorView;
+    SquareLoadingView *activityIndicatorView;
 }
 
 - (void)showWithAnimation:(BOOL)animation result:(void(^)(NSInteger))result
 {
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo([self superview]).with.insets(UIEdgeInsetsMake(GScreenHeight, 0, 0, 0));
+        make.edges.equalTo([self superview]).with.insets(UIEdgeInsetsMake(([UIScreen mainScreen].applicationFrame.size.height + 20), 0, 0, 0));
     }];
     [self setBackgroundColor:[UIColor clearColor]];
     
@@ -77,27 +75,28 @@
     
     [webview setDelegate:self];
     [webview setClipsToBounds:YES];
-    [ShapeFactory decorateLayerAllCornerWithRadius:5 forView:webview];
+    webview.layer.cornerRadius = 5;
+    webview.layer.masksToBounds = YES;
     
-    activityIndicatorView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
-    [activityIndicatorView setCenter: CGPointMake(GScreenWidth/2, GScreenHeight/2)] ;
-    [activityIndicatorView ad_setLoadingImageGifName:@"ball.gif"];
-    [self addSubview : activityIndicatorView] ;
-    
+    activityIndicatorView = [[SquareLoadingView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 40.0f, 40.f)];
+    [activityIndicatorView setCenter: CGPointMake([UIScreen mainScreen].applicationFrame.size.width/2, [UIScreen mainScreen].applicationFrame.size.height/2)];
+    [self addSubview : activityIndicatorView];
+    [activityIndicatorView setColor:[UIColor blackColor]];
     [webview loadURL:url ];
 }
 
 - (void)addOKButton:(void(^)(NSInteger))result
 {
     UIButton* close = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 66, 66)];
-    [close setCenter:CGPointMake(GScreenWidth- 50, GScreenHeight - 50)];
+    [close setCenter:CGPointMake([UIScreen mainScreen].applicationFrame.size.width- 50, [UIScreen mainScreen].applicationFrame.size.height - 50)];
     __block typeof(self) weakSelf = self;
     [[close rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         result(0);
         [weakSelf onClickOK];
     }];
     [self addSubview:close];
-    [ShapeFactory decorateLayerAllCornerWithRadius:33 forView:close];
+    close.layer.cornerRadius = 33;
+    close.layer.masksToBounds = YES;
     [close setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.5]];
     [close setTitle:@"确定" forState:UIControlStateNormal];
 }
@@ -105,14 +104,15 @@
 - (void)addCancelButton:(void(^)(NSInteger))result
 {
     UIButton* close = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 66, 66)];
-    [close setCenter:CGPointMake(50, GScreenHeight - 70)];
+    [close setCenter:CGPointMake(50, [UIScreen mainScreen].applicationFrame.size.height - 70)];
     __block typeof(self) weakSelf = self;
     [[close rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         result(1);
         [weakSelf onClickOK];
     }];
     [self addSubview:close];
-    [ShapeFactory decorateLayerAllCornerWithRadius:33 forView:close];
+    close.layer.cornerRadius = 33;
+    close.layer.masksToBounds = YES;
     [close setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.5]];
     [close setTitle:@"取消" forState:UIControlStateNormal];
 }
@@ -131,7 +131,7 @@
                                   delay:0.0
                                 options:UIViewAnimationOptionCurveEaseInOut
                              animations:^{
-                                 [self setFrame:CGRectMake(GScreenWidth - 50, GScreenHeight - 50, 0, 0)];
+                                 [self setFrame:CGRectMake([UIScreen mainScreen].applicationFrame.size.width - 50, [UIScreen mainScreen].applicationFrame.size.height - 50, 0, 0)];
                              }
                              completion:^(BOOL finishedX){
                                  [weakSelf removeFromSuperview];
@@ -154,7 +154,7 @@
                                   delay:0.0
                                 options:UIViewAnimationOptionCurveEaseInOut
                              animations:^{
-                                 [self setFrame:CGRectMake(50, GScreenHeight - 50, 0, 0)];
+                                 [self setFrame:CGRectMake(50, [UIScreen mainScreen].applicationFrame.size.height - 50, 0, 0)];
                              }
                              completion:^(BOOL finishedX){
                                  [weakSelf removeFromSuperview];
@@ -167,15 +167,15 @@
 #pragma mark - webview delegate
 - (void)webViewDidStartLoad:(SAMWebView *)webView
 {
-    [activityIndicatorView ad_showLoading];
+    [activityIndicatorView beginAnimation];
 }
 - (void)webViewDidFinishLoad:(SAMWebView *)webView
 {
-    [activityIndicatorView ad_hideLoading];
+    [activityIndicatorView stopAnimation];
 }
 
 - (void)webView:(SAMWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    [activityIndicatorView ad_hideLoading];
+    [activityIndicatorView stopAnimation];
 }
 @end
