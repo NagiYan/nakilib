@@ -25,12 +25,6 @@
 }
 */
 
-- (void)dealloc
-{
-    [_imageViews release];
-    [super dealloc];
-}
-
 - (void)setColumn:(NSInteger)column
 {
     _column = column;
@@ -60,7 +54,7 @@
 
 - (NSArray*)images
 {
-    __block NSMutableArray* images = [[NSMutableArray new] autorelease];
+    __block NSMutableArray* images = [NSMutableArray new];
     [_imageViews enumerateObjectsUsingBlock:^(UIButton*  _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
         BOOL isAdd = [[[button imageView] image] isEqual:[UIImage imageNamed:@"add"]];
         if ([[button imageView] image] && !isAdd)
@@ -88,7 +82,6 @@
     __block typeof(self) weakSelf = self;
     NSArray* images = [self images];
     
-    [_imageViews release];
     _imageViews = [NSMutableArray new];
     
     __block UIView* lastView = nil;
@@ -116,7 +109,7 @@
 {
     NSInteger column = index%_column;
     float perWidth = ([UIScreen mainScreen].applicationFrame.size.width - 10*(_column+1))/_column;
-    UIButton* button = [[UIButton new] autorelease];
+    UIButton* button = [UIButton new];
     [self addSubview:button];
     [button setImage:image forState:UIControlStateNormal];
     if (![self squareFix]) {
@@ -178,7 +171,7 @@
 - (void) p_selectPicture:(NSInteger)index source:(UIImagePickerControllerSourceType)source
 {
     //创建图片选择器
-    UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     [imagePicker.view setTag:index];
     
     //指定源类型前，检查图片源是否可用
@@ -202,7 +195,6 @@
     {
         UIAlertView *alert =[[UIAlertView alloc] initWithTitle:nil message:@"相机不能用" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
         [alert show];
-        [alert release];
     }
 }
 

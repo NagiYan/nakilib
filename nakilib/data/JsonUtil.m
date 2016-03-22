@@ -30,7 +30,7 @@
     }
     else
     {
-        jsonString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease];
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     return jsonString;
 }
@@ -38,7 +38,7 @@
 + (NSString*)Container2JsonString:(id)container withFormat:(BOOL)format
 {
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:container options:NSJSONWritingPrettyPrinted error:nil];
-    NSString* itemsJson = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease];
+    NSString* itemsJson = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
     if (!format)
     {

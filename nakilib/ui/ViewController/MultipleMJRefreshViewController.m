@@ -29,11 +29,6 @@ static NSString* identifier = @"mmjrefresh_cell";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc
-{
-    [_tableViews release];
-    [super dealloc];
-}
 /*
 #pragma mark - Navigation
 
@@ -53,7 +48,7 @@ static NSString* identifier = @"mmjrefresh_cell";
     for (int i = 0; i < count; ++i)
     {
         // tableview
-        UITableView* tableView = [[UITableView new] autorelease];
+        UITableView* tableView = [UITableView new];
         [[self view] addSubview:tableView];
         [tableView setTag:i];
         [tableView setDelegate:self];
@@ -62,7 +57,7 @@ static NSString* identifier = @"mmjrefresh_cell";
             make.left.right.bottom.equalTo(self.view);
             make.top.equalTo(self.view).with.offset(top);
         }];
-        tableView.tableFooterView = [[UIView new] autorelease];
+        tableView.tableFooterView = [UIView new];
 
         __block typeof(self) weakSelf = self;
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -78,7 +73,7 @@ static NSString* identifier = @"mmjrefresh_cell";
         tableView.showsVerticalScrollIndicator = NO;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-        NSMutableDictionary* singleTableView = [[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
+        NSMutableDictionary* singleTableView = [[NSMutableDictionary alloc] initWithCapacity:0];
         [singleTableView setObject:tableView forKey:@"tableView"];
         [singleTableView setObject:@20 forKey:@"pageSize"];
         [singleTableView setObject:@0 forKey:@"currentPage"];
@@ -152,7 +147,7 @@ static NSString* identifier = @"mmjrefresh_cell";
 - (void)setNetData:(NSArray*)data forIndex:(NSInteger)index
 {
     NSMutableDictionary* singleTableView = [_tableViews objectAtIndex:index];
-    [singleTableView setObject:[[data mutableCopy] autorelease] forKey:@"netData"];
+    [singleTableView setObject:[data mutableCopy] forKey:@"netData"];
 }
 
 // 获取页面加载大小
@@ -231,7 +226,7 @@ static NSString* identifier = @"mmjrefresh_cell";
     if (cell == nil)
     {
         //    3.创建Cell, 并且设置一个唯一的标记
-        cell = [[[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
+        cell = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
     cell.accessoryType = UITableViewCellAccessoryNone;

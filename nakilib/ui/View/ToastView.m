@@ -27,7 +27,7 @@ static int delayQueue = 0;
 
 +(void) showWithParent:(UIView*)parent text:(NSString*)text afterDelay:(float)delay pos:(NSInteger)height
 {
-    ToastView* view = [[[ToastView alloc] initWithText:text delay:delay] autorelease];
+    ToastView* view = [[ToastView alloc] initWithText:text delay:delay];
     [parent addSubview:view];
     
     view.layer.borderColor = [[UIColor grayColor] CGColor];

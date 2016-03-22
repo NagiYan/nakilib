@@ -58,7 +58,6 @@
 {
     [HUD hide:YES];
     [HUD removeFromSuperview];
-    [HUD release];
     HUD = nil;
 }
 

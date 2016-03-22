@@ -22,12 +22,6 @@
     UIButton* btnAction;
 }
 
-- (void)dealloc
-{
-    [_url release];
-    [_image release];
-    [super dealloc];
-}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -37,18 +31,9 @@
 - (id)initWithFrame:(CGRect)frame andImage:(UIImage*)image;
 {
     self = [super initWithFrame:frame];
-    if (image)
-        _image = [image retain];
+    [self setImage:image];
     [self initDefault];
     return self;
-}
-
-- (void)setImage:(UIImage *)image
-{
-    if (_image != image) {
-        [_image release];
-        _image = [image retain];
-    }
 }
 
 - (id)initWithFrame:(CGRect)frame andImageUrl:(NSString*)url
@@ -58,7 +43,6 @@
     [self initDefault];
     return self;
 }
-
 
 - (id)init
 {
@@ -73,7 +57,7 @@
     
     [UIViewUtil freeSubViews:self];
     // 图
-    imageView = [[UIImageView new] autorelease];
+    imageView = [UIImageView new];
     [self addSubview:imageView];
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
@@ -100,7 +84,7 @@
     }
     
     // 背景
-    btnAction = [[UIButton new] autorelease];
+    btnAction = [UIButton new];
     [self addSubview:btnAction];
     [btnAction mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
@@ -142,7 +126,7 @@
 - (void) selectPicture:(UIImagePickerControllerSourceType)source
 {
     //创建图片选择器
-    UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
     //指定源类型前，检查图片源是否可用
     if ([UIImagePickerController isSourceTypeAvailable:source])
@@ -165,7 +149,6 @@
     {
         UIAlertView *alert =[[UIAlertView alloc] initWithTitle:nil message:@"相机不能用" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
         [alert show];
-        [alert release];
     }
 }
 

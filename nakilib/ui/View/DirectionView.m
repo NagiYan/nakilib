@@ -19,7 +19,7 @@
     if (self)
     {
         // Initialization code
-        UILongPressGestureRecognizer *longPress = [[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(pressedLong:)] autorelease];
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(pressedLong:)];
         [self addGestureRecognizer:longPress];
 
     }

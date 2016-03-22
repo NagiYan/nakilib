@@ -30,7 +30,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        background = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)] autorelease];
+        background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         [self addSubview:background];
         
         // 设置背景色
@@ -38,11 +38,11 @@
         [self setBackgroundColor:[UIColor clearColor]];
         
         // 标题
-        _labelTitle = [[[UILabel alloc] initWithFrame:CGRectMake(GScreenWidth/2-60, 20, 120, 44)] autorelease];
+        _labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(GScreenWidth/2-60, 20, 120, 44)];
         [self addSubview:_labelTitle];
         
         // 左侧按钮
-        _buttonLeft = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)] autorelease];
+        _buttonLeft = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         [self addSubview:_buttonLeft];
         [_buttonLeft setImageEdgeInsets:UIEdgeInsetsMake(6, 6, 6, 6)];
         [_buttonLeft mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -53,7 +53,7 @@
         }];
         
         // 右侧第一个按钮
-        _buttonRight = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)] autorelease];
+        _buttonRight = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         [self addSubview:_buttonRight];
         [_buttonRight setImageEdgeInsets:UIEdgeInsetsMake(6, 6, 6, 6)];
         [_buttonRight mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -64,7 +64,7 @@
         }];
         
         // 右侧第二个按钮
-        _buttonRight2nd = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)] autorelease];
+        _buttonRight2nd = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         [self addSubview:_buttonRight2nd];
         [_buttonRight2nd setImageEdgeInsets:UIEdgeInsetsMake(6, 6, 6, 6)];
         [_buttonRight2nd mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -85,7 +85,7 @@
         
         [_buttonLeft setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
         
-        line = [[[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height - 1, GScreenWidth, 1)] autorelease];
+        line = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height - 1, GScreenWidth, 1)];
         [line setBackgroundColor:UICOLOR_BKG_NAV_LINE];
         [self addSubview:line];
     }
@@ -107,7 +107,7 @@
     if (![[self buttonLeft] isHidden])
     {
         // 左侧按钮背景
-        UIView* bkgLeft = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)] autorelease];
+        UIView* bkgLeft = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
         [self addSubview:bkgLeft];
         [bkgLeft mas_makeConstraints:^(MASConstraintMaker *make){
             make.left.equalTo(self.mas_left).with.offset(11);
@@ -123,7 +123,7 @@
     if (![[self buttonRight] isHidden])
     {
         // 右侧按钮背景
-        bkgRight = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)] autorelease];
+        bkgRight = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
         [self addSubview:bkgRight];
         [bkgRight mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.mas_right).with.offset(-11);
@@ -139,7 +139,7 @@
     if (![[self buttonRight2nd] isHidden])
     {
         // 右侧按钮背景
-        UIView* bkgRight2 = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)] autorelease];
+        UIView* bkgRight2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
         [self addSubview:bkgRight2];
         [bkgRight2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.mas_right).with.offset(-102);

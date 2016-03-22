@@ -106,18 +106,6 @@
 	self.backgroundColor = [UIColor clearColor];
 }
 
-- (void)dealloc 
-{
-    [font release];
-    [fillColor release];
-    [strokeColor release];
-    [textColor release];
-    [shadowColor release];
-    
-    [super dealloc];
-}
-
-
 - (void)drawRect:(CGRect)rect 
 {
 	CGRect viewBounds = self.bounds;

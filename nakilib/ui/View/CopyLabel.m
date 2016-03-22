@@ -10,7 +10,6 @@
     UIGestureRecognizer *touchy = [[UILongPressGestureRecognizer alloc]
         initWithTarget:self action:@selector(handleLongPress:)];
     [self addGestureRecognizer:touchy];
-    //[touchy release];
 }
 
 - (id) initWithFrame: (CGRect) frame

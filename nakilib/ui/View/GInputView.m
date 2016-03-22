@@ -76,11 +76,6 @@
     [self addSubview:btnOK];
     [self addSubview:btnCancel];
     
-    [titleBkg release];
-    [labeltitle release];
-    [btnOK release];
-    [btnCancel release];
-    
     return self;
 }
 

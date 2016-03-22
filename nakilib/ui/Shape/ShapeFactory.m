@@ -33,7 +33,7 @@
 + (void)decorateShapeWithCorner:(UIRectCorner)position withRadius:(NSInteger)radius forView:(UIView*)view
 {
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:position cornerRadii:CGSizeMake(radius, radius)];
-    CAShapeLayer *maskLayer = [[[CAShapeLayer alloc] init] autorelease];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.frame = view.bounds;
     maskLayer.path = maskPath.CGPath;
     view.layer.mask = maskLayer;
@@ -54,7 +54,7 @@
 + (void)decorateImageAllCornerForView:(UIView*)view withColor:(UIColor*)color
 {
     UIImage* image = [[UIImage imageNamed:@"shiled"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIImageView* shiled = [[UIImageView new] autorelease];
+    UIImageView* shiled = [UIImageView new];
     [shiled setImage:image];
     [shiled setTintColor:color];
     [view addSubview:shiled];
@@ -73,7 +73,7 @@
 + (void)decorateImageAllCornerRectForView:(UIView *)view withColor:(UIColor*)color
 {
     UIImage* image = [[UIImage imageNamed:@"rect_shiled"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIImageView* shiled = [[UIImageView new] autorelease];
+    UIImageView* shiled = [UIImageView new];
     [shiled setImage:image];
     [shiled setTintColor:color];
     [view addSubview:shiled];

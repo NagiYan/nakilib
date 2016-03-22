@@ -45,9 +45,9 @@ IMPLEMENT_SINGLETON(HttpUtil);
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //第一步，创建URL
     //第二步，通过URL创建网络请求
-    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]
                                                                 cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                                            timeoutInterval:10] autorelease];
+                                                            timeoutInterval:10];
     //NSURLRequest初始化方法第一个参数：请求访问路径，第二个参数：缓存协议，第三个参数：网络请求超时时间（秒）
 //    其中缓存协议是个枚举类型包含：
 //    NSURLRequestUseProtocolCachePolicy（基础策略）

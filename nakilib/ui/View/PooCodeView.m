@@ -25,19 +25,13 @@
 
         [self setCodeLength:4];
         
-        UITapGestureRecognizer *tapGestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updateCode:)] autorelease];
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updateCode:)];
         tapGestureRecognizer.cancelsTouchesInView = NO;
         [self addGestureRecognizer:tapGestureRecognizer];
         
         //[self change];
     }
     return self;
-}
-
--(void)dealloc
-{
-    [_changeString release];
-    [super dealloc];
 }
 
 -(void)updateCode:(UITapGestureRecognizer*)tap
@@ -56,16 +50,16 @@
     switch ([self codeType])
     {
         case CODE_TYPE_NUMBER:
-            self.changeArray = [[[NSArray alloc] initWithObjects:@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",nil] autorelease];
+            self.changeArray = [[NSArray alloc] initWithObjects:@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",nil];
             break;
         case CODE_TYPE_ALPHA:
-            self.changeArray = [[[NSArray alloc] initWithObjects:@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",@"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z",nil] autorelease];
+            self.changeArray = [[NSArray alloc] initWithObjects:@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",@"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z",nil];
             break;
         default:
             break;
     }
     
-    [self setChangeString:[[NSMutableString new] autorelease]];
+    [self setChangeString:[NSMutableString new]];
 
     for(NSInteger i = 0; i < [self codeLength]; i++)
     {

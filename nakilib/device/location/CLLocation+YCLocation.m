@@ -19,13 +19,13 @@ void transform_baidu_from_mars(double lat, double lng, double* tarLat, double* t
     double lat = 0.0;
     double lng = 0.0;
     transform_earth_from_mars(self.coordinate.latitude, self.coordinate.longitude, &lat, &lng);
-    return [[[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lng)
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lng)
                                          altitude:self.altitude
                                horizontalAccuracy:self.horizontalAccuracy
                                  verticalAccuracy:self.verticalAccuracy
                                            course:self.course
                                             speed:self.speed
-                                        timestamp:self.timestamp] autorelease];
+                                        timestamp:self.timestamp];
 }
 
 - (CLLocation*)locationEarthFromMars
@@ -40,13 +40,13 @@ void transform_baidu_from_mars(double lat, double lng, double* tarLat, double* t
     double lat = 0.0;
     double lng = 0.0;
     transform_mars_from_baidu(self.coordinate.latitude, self.coordinate.longitude, &lat, &lng);
-    return [[[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lng)
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lng)
                                          altitude:self.altitude
                                horizontalAccuracy:self.horizontalAccuracy
                                  verticalAccuracy:self.verticalAccuracy
                                            course:self.course
                                             speed:self.speed
-                                        timestamp:self.timestamp] autorelease];
+                                        timestamp:self.timestamp];
 }
 
 - (CLLocation*)locationMarsFromBaidu
@@ -54,13 +54,13 @@ void transform_baidu_from_mars(double lat, double lng, double* tarLat, double* t
     double lat = 0.0;
     double lng = 0.0;
     transform_baidu_from_mars(self.coordinate.latitude, self.coordinate.longitude, &lat, &lng);
-    return [[[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lng)
+    return [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat, lng)
                                          altitude:self.altitude
                                horizontalAccuracy:self.horizontalAccuracy
                                  verticalAccuracy:self.verticalAccuracy
                                            course:self.course
                                             speed:self.speed
-                                        timestamp:self.timestamp] autorelease];
+                                        timestamp:self.timestamp];
 }
 
 

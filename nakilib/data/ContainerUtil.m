@@ -31,7 +31,7 @@
 
 +(NSDictionary *)nullDic:(NSDictionary *)myDic
 {
-    __block NSMutableDictionary *resDic = [[NSMutableDictionary new] autorelease];
+    __block NSMutableDictionary *resDic = [NSMutableDictionary new];
     [myDic enumerateKeysAndObjectsUsingBlock:^(NSString*  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [resDic setObject:[ContainerUtil changeType:obj] forKey:key];
     }];
@@ -42,7 +42,7 @@
 //将NSDictionary中的Null类型的项目转化成@""
 +(NSArray *)nullArr:(NSArray *)myArr
 {
-    __block NSMutableArray *resArr = [[NSMutableArray new] autorelease];
+    __block NSMutableArray *resArr = [NSMutableArray new];
     [myArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [resArr addObject:[ContainerUtil changeType:obj]];
     }];

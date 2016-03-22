@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-    UITapGestureRecognizer *tapGestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)] autorelease];
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
     tapGestureRecognizer.cancelsTouchesInView = NO;
     [tapGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:tapGestureRecognizer];

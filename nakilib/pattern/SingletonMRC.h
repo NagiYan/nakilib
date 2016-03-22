@@ -14,6 +14,7 @@
 + (_className*)sharedInstance
 
 // 实现单例接口
+#if !__has_feature(objc_arc)
 #define IMPLEMENT_SINGLETON(_className)     \
 static _className* _sharedInstance = nil;   \
 + (_className*)sharedInstance{                      \
@@ -56,4 +57,5 @@ return self;                                    \
 -(void)dealloc{                                     \
 [super dealloc];                                \
 }
+#endif
 #endif

@@ -30,31 +30,21 @@
     
     if (self)
     {
-        maskView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, GScreenWidth, GScreenHeight)] autorelease];
+        maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, GScreenWidth, GScreenHeight)];
         [maskView setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.6]];
         [self addSubview:maskView];
         
-        _progressView = [[[UIProgressView alloc] initWithFrame:CGRectMake(20, GScreenHeight*0.4, GScreenWidth - 40, 3)] autorelease];
+        _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(20, GScreenHeight*0.4, GScreenWidth - 40, 3)];
         [maskView addSubview:_progressView];
         [_progressView setProgress:0 animated:YES];
         [_progressView setTintColor:color];
         
-        infoLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, GScreenHeight*0.4 - 30, GScreenWidth - 20, 21)] autorelease];
+        infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, GScreenHeight*0.4 - 30, GScreenWidth - 20, 21)];
         [infoLabel setTextColor:[UIColor colorWithWhite:1 alpha:1]];
         [infoLabel setFont:SYSTEM_FONT(14)];
         [infoLabel setTextAlignment:NSTextAlignmentCenter];
         [infoLabel setText:@""];
         [maskView addSubview:infoLabel];
-        
-        /*
-         UIButton* button = [[[UIButton alloc] initWithFrame:CGRectMake(GScreenWidth/2 - 40, GScreenHeight - 100, 80, 80)] autorelease];
-         [ShapeFactory decorateLayerAllCornerWithRadius:40 forView:button];
-         [button setTitle:@"取消" forState:UIControlStateNormal];
-         [button setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
-         [button setBackgroundColor:FlatSkyBlue];
-         [[self maskView] addSubview:button];
-         [button addTarget:self action:@selector(onClickCancelUpload) forControlEvents:UIControlEventTouchUpInside];
-         */
     }
     
     return self;

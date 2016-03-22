@@ -33,11 +33,6 @@ static NSString* identifier = @"mjrefresh_cell";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [_netData release];
-    [super dealloc];
-}
-
 /*
 #pragma mark - Navigation
 
@@ -51,7 +46,7 @@ static NSString* identifier = @"mjrefresh_cell";
 - (void)p_initMJRefreshUI
 {
     // tableview
-    _tableView = [[UITableView new] autorelease];
+    _tableView = [UITableView new];
     [[self view] addSubview:_tableView];
     [_tableView setDelegate:self];
     [_tableView setDataSource:self];
@@ -60,7 +55,7 @@ static NSString* identifier = @"mjrefresh_cell";
         make.top.equalTo(self.view).with.offset(64);
         make.bottom.equalTo(self.view);
     }];
-    _tableView.tableFooterView = [[UIView new] autorelease];
+    _tableView.tableFooterView = [UIView new];
 
     __block typeof(self) weakSelf = self;
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -111,7 +106,7 @@ static NSString* identifier = @"mjrefresh_cell";
     if (cell == nil)
     {
         //    3.创建Cell, 并且设置一个唯一的标记
-        cell = [[[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
+        cell = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -143,7 +138,6 @@ static NSString* identifier = @"mjrefresh_cell";
 // 合并数据 这里直接替换 子类可修改合并策略
 - (void)p_mergeData:(NSArray*)data
 {
-    [_netData release];
     _netData = [data mutableCopy];
 }
 
@@ -178,7 +172,6 @@ static NSString* identifier = @"mjrefresh_cell";
         // 下拉刷新
         if (!_netData || [_netData count] == 0 || [data count] == 0)
         {
-            [_netData release];
             _netData = [data mutableCopy];
             if ([data count] < _pageSize)
             {

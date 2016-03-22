@@ -54,7 +54,7 @@ IMPLEMENT_SINGLETON(GTimeUtil);
         if (!format) {
             format = @"yyyy-MM-dd HH:mm:ss";
         }
-        NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
+        NSDateFormatter *formatter = [NSDateFormatter new];
         [formatter setDateFormat:format];
         NSDate *date = [formatter dateFromString:uiDate];
         [self dataFormateCache][uiDate] = date;
@@ -86,7 +86,6 @@ IMPLEMENT_SINGLETON(GTimeUtil);
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     
     NSString*   curDateString = [dateFormatter stringFromDate:[NSDate date]];
-    [dateFormatter release];//------------------------------------
     
     return curDateString;
 }
@@ -106,7 +105,6 @@ IMPLEMENT_SINGLETON(GTimeUtil);
     [dateFormatter setDateFormat:fomart];
     
     NSString*   dateString = [dateFormatter stringFromDate:date];
-    [dateFormatter release];//------------------------------------
     
     return dateString;
 }
@@ -186,8 +184,6 @@ IMPLEMENT_SINGLETON(GTimeUtil);
                 [[UIApplication sharedApplication] cancelLocalNotification:localNotif];
         }
     }
-    
-    [localNotif release];
 }
 
 // 某日至今有多久

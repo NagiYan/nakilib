@@ -55,7 +55,7 @@
     NSInteger itemHeight = 50;
     NSInteger height = [[self sourceData] count] * itemHeight;
     
-    UIView* container = [[[UIView alloc] initWithFrame:CGRectMake(20, GScreenHeight/2 - height/2, GScreenWidth - 40, height)] autorelease];
+    UIView* container = [[UIView alloc] initWithFrame:CGRectMake(20, GScreenHeight/2 - height/2, GScreenWidth - 40, height)];
     [self addSubview:container];
     [container setBackgroundColor:[UIColor whiteColor]];
     [ShapeFactory decorateLayerAllCornerWithRadius:3 forView:container];
@@ -63,7 +63,7 @@
     for (int i = 0; i < [[self sourceData] count]; ++i)
     {
         NSString* text = [[self sourceData] objectAtIndex:i];
-        UIButton* selection = [[[UIButton alloc] initWithFrame:CGRectMake(0, itemHeight*i, container.frame.size.width, itemHeight)] autorelease];
+        UIButton* selection = [[UIButton alloc] initWithFrame:CGRectMake(0, itemHeight*i, container.frame.size.width, itemHeight)];
         [selection setTitleColor:(i == [self indexSelected])?[UIColor blackColor]:UICOLOR_TEXT_GREY forState:UIControlStateNormal];
         [selection setTitle:text forState:UIControlStateNormal];
         selection.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -74,7 +74,7 @@
         
         if (i != [[self sourceData] count] - 1)
         {
-            UIView* line = [[[UIView alloc] initWithFrame:CGRectMake(0, itemHeight*(i + 1) - 1, container.frame.size.width, 1)] autorelease];
+            UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0, itemHeight*(i + 1) - 1, container.frame.size.width, 1)];
             [container addSubview:line];
             [line setBackgroundColor:FlatWhite];
         }
@@ -125,7 +125,6 @@
                           completion:^(BOOL finished2)
           {
               [self resignKeyWindow];
-              [self release];
               [[[[UIApplication sharedApplication] delegate] window] makeKeyAndVisible];
           }];
      }];

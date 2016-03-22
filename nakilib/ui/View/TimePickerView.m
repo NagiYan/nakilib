@@ -40,15 +40,15 @@
 #pragma mark - util
 - (void)initTime:(NSInteger)seconds frame:(CGRect)frame
 {
-    UIView* backView = [[[UIView alloc] initWithFrame:frame] autorelease];
+    UIView* backView = [[UIView alloc] initWithFrame:frame];
     [self addSubview:backView];
     [backView setTag:99];
     [backView setBackgroundColor:[UIColor whiteColor]];
     
     NSInteger perWidth = (frame.size.width - 20)/3*0.6;
-    pickerHour = [[[UIPickerView alloc] initWithFrame:CGRectMake(10, 10, perWidth, frame.size.height - 20)] autorelease];
-    pickerMinute = [[[UIPickerView alloc] initWithFrame:CGRectMake(10 + (frame.size.width - 20)/3, 10, perWidth, frame.size.height - 20)] autorelease];
-    pickerSecond = [[[UIPickerView alloc] initWithFrame:CGRectMake(10 + (frame.size.width - 20)/3*2, 10, perWidth, frame.size.height - 20)] autorelease];
+    pickerHour = [[UIPickerView alloc] initWithFrame:CGRectMake(10, 10, perWidth, frame.size.height - 20)];
+    pickerMinute = [[UIPickerView alloc] initWithFrame:CGRectMake(10 + (frame.size.width - 20)/3, 10, perWidth, frame.size.height - 20)];
+    pickerSecond = [[UIPickerView alloc] initWithFrame:CGRectMake(10 + (frame.size.width - 20)/3*2, 10, perWidth, frame.size.height - 20)];
     [pickerHour setDelegate:self];
     [pickerMinute setDelegate:self];
     [pickerSecond setDelegate:self];
@@ -57,19 +57,19 @@
     [backView addSubview:pickerMinute];
     [backView addSubview:pickerSecond];
     
-    UILabel* labelHour = [[[UILabel alloc] initWithFrame:CGRectMake(10 + (frame.size.width - 20)/3*0.6, 10, (frame.size.width - 20)/3*0.4, frame.size.height - 20)] autorelease];
+    UILabel* labelHour = [[UILabel alloc] initWithFrame:CGRectMake(10 + (frame.size.width - 20)/3*0.6, 10, (frame.size.width - 20)/3*0.4, frame.size.height - 20)];
     [backView addSubview:labelHour];
     [labelHour setText:@"时"];
     [labelHour setFont:SYSTEM_FONT(15)];
     [labelHour setTextAlignment:NSTextAlignmentCenter];
     
-    UILabel* labelMinute = [[[UILabel alloc] initWithFrame:CGRectMake(10 + (frame.size.width - 20)/3*1.6, 10, (frame.size.width - 20)/3*0.4, frame.size.height - 20)] autorelease];
+    UILabel* labelMinute = [[UILabel alloc] initWithFrame:CGRectMake(10 + (frame.size.width - 20)/3*1.6, 10, (frame.size.width - 20)/3*0.4, frame.size.height - 20)];
     [backView addSubview:labelMinute];
     [labelMinute setText:@"分"];
     [labelMinute setFont:SYSTEM_FONT(15)];
     [labelMinute setTextAlignment:NSTextAlignmentCenter];
     
-    UILabel* labelSecond = [[[UILabel alloc] initWithFrame:CGRectMake(10 + (frame.size.width - 20)/3*2.6, 10, (frame.size.width - 20)/3*0.4, frame.size.height - 20)] autorelease];
+    UILabel* labelSecond = [[UILabel alloc] initWithFrame:CGRectMake(10 + (frame.size.width - 20)/3*2.6, 10, (frame.size.width - 20)/3*0.4, frame.size.height - 20)];
     [backView addSubview:labelSecond];
     [labelSecond setText:@"秒"];
     [labelSecond setFont:SYSTEM_FONT(15)];
@@ -141,7 +141,7 @@
     
     UILabel *myView = nil;
     
-    myView = [[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, perWidth, 30)] autorelease];
+    myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, perWidth, 30)];
     
     myView.textAlignment = NSTextAlignmentCenter;
     

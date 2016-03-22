@@ -16,9 +16,7 @@
     if (value == nil) {
         return @"";
     }
-	//[value retain];
 	const char *cStr = [value UTF8String];
-	//[value release];
     unsigned char result[16];
     CC_MD5( cStr, strlen(cStr), result ); // This is the md5 call
     return [NSString stringWithFormat:

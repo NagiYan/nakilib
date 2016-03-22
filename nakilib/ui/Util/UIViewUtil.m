@@ -197,7 +197,7 @@
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    UIImageView* view = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, GScreenWidth, GScreenHeight)] autorelease];
+    UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, GScreenWidth, GScreenHeight)];
     [view setImage:img];
     return view;
 }
@@ -243,7 +243,7 @@
 + (void) selectPicture:(UIImagePickerControllerSourceType)source parentViewController:(UIViewController*)parent andDelegate:(id <UINavigationControllerDelegate, UIImagePickerControllerDelegate>)delegate
 {
     //创建图片选择器
-    UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
     //指定源类型前，检查图片源是否可用
     if ([UIImagePickerController isSourceTypeAvailable:source])
@@ -265,7 +265,6 @@
     {
         UIAlertView *alert =[[UIAlertView alloc] initWithTitle:nil message:@"相机不能用" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
         [alert show];
-        [alert release];
     }
 }
 
