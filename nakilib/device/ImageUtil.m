@@ -15,7 +15,7 @@
 
 +(UIImage *) loadImageFromURL:(NSString *)fileURL
 {
-    UIImage * result;
+    UIImage * result = nil;
     
     NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
     result = [UIImage imageWithData:data];
@@ -135,7 +135,7 @@
     CGFloat components[4] = {r,g,b,a};
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     
-    CGColorRef color = (CGColorRef)(id)CGColorCreate(colorSpace, components);
+    CGColorRef color = (__bridge CGColorRef)(__bridge id)CGColorCreate(colorSpace, components);
     CGColorSpaceRelease(colorSpace);
     
     return color;

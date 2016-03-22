@@ -16,7 +16,7 @@
 @end
 
 @implementation GTimeUtil
-IMPLEMENT_SINGLETON(GTimeUtil);
+IMPLEMENT_SINGLETON_ARC(GTimeUtil);
 
 
 // 是否是今天

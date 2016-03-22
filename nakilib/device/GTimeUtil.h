@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SingletonMRC.h"
+#import "SingletonARC.h"
 
 @interface GTimeUtil : NSObject
-DEFINE_SINGLETON(GTimeUtil);
+DEFINE_SINGLETON_ARC(GTimeUtil);
 
 // 是否是今天
 - (BOOL)isToday:(int)year dateMonth:(int)month dateDay:(int)day;

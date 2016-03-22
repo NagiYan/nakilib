@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SingletonMRC.h"
+#import "SingletonARC.h"
 
 @interface HttpUtil : NSObject
 
-DEFINE_SINGLETON(HttpUtil);
+DEFINE_SINGLETON_ARC(HttpUtil);
 
 // 同步HTTP POST请求
 - (NSData*) HttpPost:(NSString*)postString ServerUrl:(NSString*)url;

@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#include "SingletonMRC.h"
+#include "SingletonARC.h"
 
 @interface GScreen : NSObject
-DEFINE_SINGLETON(GScreen);
+DEFINE_SINGLETON_ARC(GScreen);
 
 - (CGSize)GetDeviceFrame;
 @end

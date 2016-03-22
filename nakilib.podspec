@@ -15,13 +15,21 @@ Pod::Spec.new do |s|
   
   s.default_subspec = 'All'
   s.subspec 'All' do |spec|
+    spec.ios.dependency 'nakilib/MRC'
     spec.ios.dependency 'nakilib/ARC'
   end
   
+  s.subspec 'MRC' do |spec|
+    spec.requires_arc = false
+    spec.source_files = "nakilib/ui/view/MKNumberBadgeView.*"
+    spec.exclude_files = "nakilib/LICENSE"
+    spec.frameworks = "UIKit"
+  end
+
   s.subspec 'ARC' do |spec|
     spec.requires_arc = true
     spec.source_files = "nakilib/**/*", "nakilib/ui/**/*", "nakilib/communication/**/*", "nakilib/device/**/*"
-    spec.exclude_files = "nakilib/LICENSE"
+    spec.exclude_files = "nakilib/LICENSE", "nakilib/ui/view/MKNumberBadgeView.*"
     spec.frameworks = "UIKit"
 
     s.dependency 'SAMWebView'

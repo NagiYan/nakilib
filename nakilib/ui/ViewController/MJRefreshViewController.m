@@ -164,7 +164,7 @@ static NSString* identifier = @"mjrefresh_cell";
 - (void)p_processData:(NSArray*)data
 {    
     if (!_netData) {
-        _netData = [[NSMutableArray array] retain];
+        _netData = [NSMutableArray array];
     }
     
     if(loadNew)

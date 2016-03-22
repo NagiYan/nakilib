@@ -10,7 +10,7 @@
 
 
 @implementation GScreen
-IMPLEMENT_SINGLETON(GScreen);
+IMPLEMENT_SINGLETON_ARC(GScreen);
 
 - (CGSize)GetDeviceFrame
 {

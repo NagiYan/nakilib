@@ -12,7 +12,7 @@
 
 @implementation HttpUtil
 
-IMPLEMENT_SINGLETON(HttpUtil);
+IMPLEMENT_SINGLETON_ARC(HttpUtil);
 
 - (NSData*) HttpPost:(NSString*)postString ServerUrl:(NSString*)url
 {
