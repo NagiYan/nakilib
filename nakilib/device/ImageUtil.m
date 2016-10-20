@@ -206,5 +206,26 @@
     
     return image;
 }
+
+/**
+ *  黑白化图片
+ *
+ *  @param image 需要处理的图片
+ *
+ *  @return 处理后的图片
+ */
++ (UIImage*) convertImageToGreyScale:(UIImage*) image
+{
+    CGRect imageRect = CGRectMake(0, 0, image.size.width, image.size.height);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
+    CGContextRef context = CGBitmapContextCreate(nil, image.size.width, image.size.height, 8, 0, colorSpace, kCGImageAlphaNone);
+    CGContextDrawImage(context, imageRect, [image CGImage]);
+    CGImageRef imageRef = CGBitmapContextCreateImage(context);
+    UIImage *newImage = [UIImage imageWithCGImage:imageRef];
+    CGColorSpaceRelease(colorSpace);
+    CGContextRelease(context);
+    CFRelease(imageRef);
+    return newImage;
+}
 @end
 

@@ -34,4 +34,6 @@
 + (UIImage *)thumbnailWithImage:(UIImage *)image size:(CGSize)asize;
 
 + (UIImage *)squareImageFromImage:(UIImage *)image scaledToSize:(CGFloat)newSize;
+
++ (UIImage*) convertImageToGreyScale:(UIImage*) image;
 @end
