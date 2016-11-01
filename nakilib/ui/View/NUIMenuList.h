@@ -16,9 +16,12 @@
 
 @interface NUIMenuList : UIWindow
 
-@property (retain, nonatomic)NSArray* sourceData;
+// 选项列表数据源
+@property (strong, nonatomic)NSArray* sourceData;
+// 默认选中项
 @property (assign, nonatomic)NSInteger indexSelected;
-@property (retain, nonatomic)id<NUIMenuListDelegate> menuDelegate;
+
+@property (weak, nonatomic)id<NUIMenuListDelegate> menuDelegate;
 
 // 需要在设置完属性后调用
 - (void)makeWindow;

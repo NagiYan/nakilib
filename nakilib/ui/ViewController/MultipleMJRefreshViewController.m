@@ -59,7 +59,7 @@ static NSString* identifier = @"mmjrefresh_cell";
         }];
         tableView.tableFooterView = [UIView new];
 
-        __block typeof(self) weakSelf = self;
+        __weak typeof(self) weakSelf = self;
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [weakSelf onHeaderReflash:tableView.mj_header];
         }];
@@ -382,10 +382,7 @@ static NSString* identifier = @"mmjrefresh_cell";
         
         if (tableView.mj_footer)
         {
-            if (tableView.mj_footer.state != MJRefreshStateNoMoreData)
-            {
-                [tableView.mj_footer endRefreshing];
-            }
+            [tableView.mj_footer endRefreshing];
         }
     }];
 }

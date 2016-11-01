@@ -61,4 +61,6 @@
 - (void)p_mergeData:(NSArray*)data;
 
 - (void)p_didSelectRow:(NSIndexPath *)indexPath;
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
