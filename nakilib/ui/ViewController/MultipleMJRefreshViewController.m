@@ -380,7 +380,7 @@ static NSString* identifier = @"mmjrefresh_cell";
             [tableView.mj_header endRefreshing];
         }
         
-        if (tableView.mj_footer)
+        if (tableView.mj_footer && tableView.mj_footer.state != MJRefreshStateNoMoreData)
         {
             [tableView.mj_footer endRefreshing];
         }
