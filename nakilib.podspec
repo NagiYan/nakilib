@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "nakilib"
-  s.version      = "1.0.9"
-  s.source       = { :git => "https://github.com/NagiYan/nakilib.git", :tag => "1.0.9" }
+  s.version      = "1.0.10"
+  s.source       = { :git => "https://github.com/NagiYan/nakilib.git", :tag => "1.0.10" }
   s.summary      = "my lib, with some usefull tools"
   s.description  = <<-DESC
 			my lib, with some usefull tools, for private use
